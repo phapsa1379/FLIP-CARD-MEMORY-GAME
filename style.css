@@ -1,0 +1,241 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+
+
+
+
+
+
+.flip-vertical-right {
+    -webkit-animation: flip-vertical-right 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    animation: flip-vertical-right 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+@-webkit-keyframes flip-vertical-right {
+    0% {
+        -webkit-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+    100% {
+        /*-webkit-transform: rotateY(180deg);*/
+        /*transform: rotateY(180deg);*/
+        transform: scale(-1, 1);
+    }
+}
+@keyframes flip-vertical-right {
+    0% {
+        -webkit-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+    100% {
+        -webkit-transform: rotateY(180deg);
+
+
+        transform: rotateY(180deg);
+    }
+}
+
+
+.flip-vertical-left {
+    -webkit-animation: flip-vertical-left 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    animation: flip-vertical-left 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+@-webkit-keyframes flip-vertical-left {
+    0% {
+        -webkit-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+    100% {
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+    }
+}
+@keyframes flip-vertical-left {
+    0% {
+        -webkit-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+    100% {
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+    }
+}
+
+
+
+
+
+
+
+body
+{
+    height: 100vh;
+    position: relative;
+}
+
+:root
+{
+   --primary:#20bf6b;
+    --secondary:#eb3b5a;
+    --third:#000;
+}
+
+html
+{
+    font-size: 62.5%;
+}
+main
+{
+    /*padding: 2.5rem;*/
+    background-color:var(--third);
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+
+
+
+.row
+{
+    width: 100%;
+    height: 24vh;
+
+    display: flex;
+    margin: 1px;
+
+}
+.cel
+{
+    height: calc(24vh-15px);
+    background-color:var(--primary);
+    width: 25vw;
+    margin: 1px;
+    cursor:pointer;
+    color: white;
+    font-size: 8rem;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.round-time-bar {
+
+    overflow: hidden;
+}
+.round-time-bar div {
+    height: 15px;
+    animation: roundtime calc(var(--duration) * 1s) steps(var(--duration))
+    forwards;
+    transform-origin: left center;
+    background: linear-gradient(to bottom, red, #900);
+}
+
+.round-time-bar[data-style="smooth"] div {
+    animation: roundtime calc(var(--duration) * 1s) linear forwards;
+}
+
+.round-time-bar[data-style="fixed"] div {
+    width: calc(var(--duration) * 5%);
+}
+
+.round-time-bar[data-color="blue"] div {
+    background: linear-gradient(to bottom, #64b5f6, #1565c0);
+}
+
+@keyframes roundtime {
+    to {
+        /* More performant than `width` */
+        transform: scaleX(0);
+    }
+}
+
+.score
+{
+    position: absolute;
+    left: 50%;
+    top:48%;
+    height: 20rem;
+    width: 20rem;
+    transform: translate(-50%,-50%);
+    font-size: 15rem;
+    font-weight: 900;
+    color: #ffa801;
+    box-shadow: 2px 2px 4px 2px #3e3d3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-align: center;
+    background-color: white;
+    opacity: 0.8;
+}
+
+.finish
+{
+    width: 100%;
+    height: 100vh;
+
+
+    display: none;
+
+}
+
+.your-score
+{
+    width: 100%;
+    position: absolute;
+    font-size: 12rem;
+    font-weight: 900;
+    color: #3867d6;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.start-again
+{
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%,-50%);
+    width: 200px;
+    padding: 1rem 2rem;
+    font-size: 30px;
+    border-radius: 1rem;
+    background-color:#a55eea;
+    color: white;
+    text-align: center;
+    box-shadow: 5px 5px 10px #6c6c6c;
+    cursor:pointer;
+}
+
+.rotate1
+{
+    transform: rotateY(0);
+}
+
+.copy-right
+{
+    position: absolute;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 30px;
+    color: gray;
+    left: 50%;
+    top: 75%;
+    transform: translate(-50%,-50%);
+
+}
